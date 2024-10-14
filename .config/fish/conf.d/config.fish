@@ -19,6 +19,11 @@ else if type -q batcat
   alias less 'batcat -p'
 end
 
+abbr grep 'grep --color=auto'
+abbr df 'df -h'
+abbr du 'du -h'
+abbr mkdir 'mkdir -p'
+
 # Tmux aliases
 alias t 'tmux attach || tmux new-session'
 alias ta 'tmux attach -t'
