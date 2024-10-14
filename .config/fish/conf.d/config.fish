@@ -46,6 +46,17 @@ function multicd
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
+# Abbreviation for running updates
+function update
+    if type -q apt
+        sudo apt update && sudo apt upgrade
+    else if type -q dnf
+        sudo dnf upgrade
+    else
+        echo "Neither apt nor dnf is installed."
+    end
+end
+
 # Set full paths
 set -U fish_prompt_pwd_dir_length 0
 
