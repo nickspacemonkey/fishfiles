@@ -19,6 +19,8 @@ else if type -q batcat
   alias less 'batcat -p'
 end
 
+alias myip 'curl ifconfig.io'
+
 abbr grep 'grep --color=auto'
 abbr df 'df -h'
 abbr du 'du -h'
