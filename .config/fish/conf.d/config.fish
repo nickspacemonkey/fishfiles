@@ -50,7 +50,9 @@ abbr --add dotdot --regex '^\.\.+$' --function multicd
 
 # Abbreviation for running updates
 function update
-    if type -q nala
+    if type -q update
+        bash update
+    else if type -q nala
         sudo nala update && sudo nala upgrade
     else if type -q apt
         sudo apt update && sudo apt upgrade
