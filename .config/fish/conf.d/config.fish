@@ -48,6 +48,16 @@ function multicd
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
+# sudo !!
+function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
+    if test "$argv" = !!
+        echo sudo $history[1]
+        eval command sudo $history[1]
+    else
+        command sudo $argv
+    end
+end
+
 # Abbreviation for running updates
 function update
     if type -q update
