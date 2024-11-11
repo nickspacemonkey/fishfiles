@@ -60,10 +60,10 @@ end
 
 # Abbreviation for running updates
 function update
-    if type -q update
-        bash update
+    if type -q /usr/bin/update
+        sudo bash update
     else if type -q nala
-        sudo nala update && sudo nala upgrade
+        sudo nala upgrade
     else if type -q apt
         sudo apt update && sudo apt upgrade
     else if type -q dnf
