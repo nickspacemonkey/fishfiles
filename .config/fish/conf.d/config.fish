@@ -68,6 +68,8 @@ function update
         sudo apt update && sudo apt upgrade
     else if type -q dnf
         sudo dnf upgrade
+    else if type -q nix
+        sudo nixos-rebuild switch --upgrade 
     else
         echo "Neither apt nor dnf is installed."
     end
