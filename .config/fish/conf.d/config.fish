@@ -48,9 +48,7 @@ function multicd
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
-function sudo; command sudo -sE $argv; end
-
-# sudo !!
+# sudo !! and alias fix
 function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
     if test "$argv" = !!
         echo sudo $history[1]
