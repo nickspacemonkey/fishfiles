@@ -3,6 +3,8 @@ fish_vi_key_bindings
 
 if type -q exa
   alias ll 'exa -la'
+else if type -q eza
+  alias ll 'eza -la'
 else
   alias ll 'ls -la'
 end
