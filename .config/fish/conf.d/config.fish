@@ -48,18 +48,10 @@ function multicd
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
-# sudo !! and alias fix
-function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
-    if test "$argv" = !!
-        set cmdline (
-            for arg in $history[1]
-                printf "\"%s\" " $arg
-            end
-        )
-        set -x function_src (string join "\n" (string escape --style=var (functions "$history[1]")))
-        set argv fish -c 'string unescape --style=var (string split "\n" $function_src) | source; '$cmdline
-        command sudo -E $argv
-    else if functions -q -- "$argv[1]"
+
+# sudo alias fix
+function sudo --description "Fixes expanding aliases for sudo"
+    if functions -q -- "$argv[1]"
         set cmdline (
             for arg in $argv
                 printf "\"%s\" " $arg
@@ -72,6 +64,10 @@ function sudo --description "Replacement for Bash 'sudo !!' command to run last 
         command sudo $argv
     end
 end
+
+# Bash Style Command Substitution and Chaining (!! !$)
+function last_history_item; echo $history[1]; end
+abbr -a !! --position anywhere --function last_history_item
 
 # Abbreviation for running updates
 function update
