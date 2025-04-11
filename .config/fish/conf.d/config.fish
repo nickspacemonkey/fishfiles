@@ -2,23 +2,28 @@ set fish_greeting
 fish_vi_key_bindings
 
 if type -q exa
-  alias ll 'exa -la'
+    alias ll 'exa -la'
 else if type -q eza
-  alias ll 'eza -la'
+    alias ll 'eza -la'
 else
-  alias ll 'ls -la'
+    alias ll 'ls -la'
 end
 
 if type -q nala
-  alias apt 'nala'
+    alias apt nala
 end
 
 if type -q bat
-  alias cat 'bat -pp'
-  alias less 'bat -p'
+    alias cat 'bat -pp'
+    alias less 'bat -p'
 else if type -q batcat
-  alias cat 'batcat -pp'
-  alias less 'batcat -p'
+    alias cat 'batcat -pp'
+    alias less 'batcat -p'
+end
+
+if type -q hx
+    alias vi hx
+    alias vim hx
 end
 
 alias myip 'curl ifconfig.io'
@@ -68,7 +73,9 @@ function sudo --description "Fixes expanding aliases for sudo"
 end
 
 # Bash Style Command Substitution and Chaining (!! !$)
-function last_history_item; echo $history[1]; end
+function last_history_item
+    echo $history[1]
+end
 abbr -a !! --position anywhere --function last_history_item
 
 # Abbreviation for running updates
@@ -82,7 +89,7 @@ function update
     else if type -q dnf
         sudo dnf upgrade
     else if type -q nix
-        sudo nixos-rebuild switch --upgrade 
+        sudo nixos-rebuild switch --upgrade
     else
         echo "Neither apt nor dnf is installed."
     end
