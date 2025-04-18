@@ -24,6 +24,9 @@ end
 if type -q hx
     alias vi hx
     alias vim hx
+else if type -q helix
+    alias vi helix
+    alias vim helix
 end
 
 alias myip 'curl ifconfig.io'
