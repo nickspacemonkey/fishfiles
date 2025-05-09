@@ -2,9 +2,9 @@ set fish_greeting
 fish_vi_key_bindings
 
 if type -q exa
-    alias ll 'exa -la'
+    alias ll 'exa -lga'
 else if type -q eza
-    alias ll 'eza -la'
+    alias ll 'eza -lga'
 else
     alias ll 'ls -la'
 end
