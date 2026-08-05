@@ -1,6 +1,8 @@
 set fish_greeting
 fish_vi_key_bindings
 
+fish_add_path --path $HOME/.local/bin
+
 if type -q exa
     alias ll 'exa -lga'
 else if type -q eza
@@ -57,7 +59,6 @@ function multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
-
 
 # sudo alias fix
 function sudo --description "Fixes expanding aliases for sudo"
