@@ -5,8 +5,6 @@ fish_add_path --path $HOME/.local/bin
 
 if type -q eza
     alias ll 'eza -lga'
-else if type -q eza
-    alias ll 'eza -lga'
 else
     alias ll 'ls -la'
 end
@@ -84,9 +82,7 @@ abbr -a !! --position anywhere --function last_history_item
 
 # Abbreviation for running updates
 function update
-    if type -q /usr/bin/update
-        sudo bash update
-    else if type -q nala
+    if type -q nala
         sudo nala upgrade -y
     else if type -q apt
         sudo apt update && sudo apt upgrade -y
