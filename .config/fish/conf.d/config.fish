@@ -3,8 +3,8 @@ fish_vi_key_bindings
 
 fish_add_path --path $HOME/.local/bin
 
-if type -q exa
-    alias ll 'exa -lga'
+if type -q eza
+    alias ll 'eza -lga'
 else if type -q eza
     alias ll 'eza -lga'
 else
