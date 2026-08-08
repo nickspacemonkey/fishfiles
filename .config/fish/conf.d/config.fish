@@ -87,11 +87,11 @@ function update
     if type -q /usr/bin/update
         sudo bash update
     else if type -q nala
-        sudo nala upgrade
+        sudo nala upgrade -y
     else if type -q apt
-        sudo apt update && sudo apt upgrade
+        sudo apt update && sudo apt upgrade -y
     else if type -q dnf
-        sudo dnf upgrade
+        sudo dnf upgrade -y
     else if type -q nix
         sudo nixos-rebuild switch --upgrade
     else
