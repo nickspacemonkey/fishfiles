@@ -1,6 +1,11 @@
 set fish_greeting
 fish_vi_key_bindings
 
+# Prevent OSC terminal-query responses from leaking into the prompt through tmux over SSH.
+if not contains -- no-query-term $fish_features
+    set -Ua fish_features no-query-term
+end
+
 fish_add_path --path $HOME/.local/bin
 
 if type -q eza
