@@ -37,6 +37,7 @@ end
 alias myip 'curl ifconfig.io'
 
 abbr grep 'grep --color=auto'
+alias cp 'cp --reflink=auto'
 abbr df 'df -hT'
 abbr du 'du -h'
 abbr mkdir 'mkdir -p'
