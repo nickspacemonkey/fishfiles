@@ -93,10 +93,14 @@ function update
         sudo apt update && sudo apt upgrade -y
     else if type -q dnf
         sudo dnf upgrade -y
+    else if type -q zypper
+        sudo zypper refresh; and sudo zypper update -y
+    else if type -q apk
+        sudo apk update; and sudo apk upgrade
     else if type -q nix
         sudo nixos-rebuild switch --upgrade
     else
-        echo "Neither apt nor dnf is installed."
+        echo "No supported package manager is installed."
     end
 end
 
