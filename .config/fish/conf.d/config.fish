@@ -86,27 +86,6 @@ function last_history_item
 end
 abbr -a !! --position anywhere --function last_history_item
 
-# Abbreviation for running updates
-function update
-    if type -q nala
-        sudo nala upgrade -y
-    else if type -q apt
-        sudo apt update && sudo apt upgrade -y
-    else if type -q dnf
-        sudo dnf upgrade -y
-    else if type -q pacman
-        sudo pacman -Syu --noconfirm
-    else if type -q zypper
-        sudo zypper refresh; and sudo zypper update -y
-    else if type -q apk
-        sudo apk --no-interactive update; and sudo apk --no-interactive upgrade
-    else if type -q nix
-        sudo nixos-rebuild switch --upgrade
-    else
-        echo "No supported package manager is installed."
-    end
-end
-
 # Set full paths
 set -U fish_prompt_pwd_dir_length 0
 
